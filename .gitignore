@@ -135,4 +135,4 @@ instantclient_21_10/
 notebooks/WORK/
 # arquivo gerado por um notebook
 notebooks/recommender.py
-noteboks/knn_indexer.py
+notebooks/knn_indexer.py
