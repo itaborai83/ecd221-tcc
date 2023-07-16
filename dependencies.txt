@@ -1,0 +1,4 @@
+pip install pynndescent==0.5.8 
+pip install jupyter pandas matplotlib duckdb pyarrow
+pip install cx_Oracle sqlalchemy
+
