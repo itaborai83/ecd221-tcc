@@ -2,21 +2,98 @@ Set-ExecutionPolicy -Scope CurrentUser Bypass
 $Env:ORACLE_HOST            = "bdodscp.petrobras.com.br"
 $Env:ORACLE_PORT            = 1521
 $Env:ORACLE_SERVICE         = "odscp.petrobras.com.br"
-$Env:ORACLE_USER            = "<usuario>"
-$Env:ORACLE_PASSWORD        = "<senha>"
+$Env:ORACLE_USER            = "<user>"
+$Env:ORACLE_PASSWORD        = "<password>"
 $Env:ORACLE_HOME            = "C:\Users\Public\trabalho\projetos\sap-role-recommender\instantclient_21_10"
 $Env:BIRH_DATA              = "./DATA/birh.parquet"
 $Env:SAP_USER_ROLES_CSV     = "./DATA/chaveXperfil.csv"
-$Env:DATASET                = "./DATA/dataset.parquet"
-$Env:USER_ROLES             = "./DATA/user-roles.parquet"
-$Env:ORGUNIT_ROLES          = "./DATA/orgunit-roles.parquet"
-$Env:FUNCTION_ROLES         = "./DATA/function-roles.parquet"
-$Env:HASHED_FEATURES        = "./DATA/hashed_features.dat"
-$Env:HASHED_FEATURES_IDX    = "./DATA/hashed_features_idx.parquet"
 $Env:USE_SPARSE             = "True"
-$Env:SHINGLER_N             = "6"
-$Env:HASHED_FEATURE_COUNT   = "500000"
 $Env:KNN_RANDOM_STATE       = "42"
+
+$Env:SKIP_ROLES             = '["Z:BC_USO_GERAL", "Z:FI_AA_PB001_EXE_CON_REL_IMOB"]'
+
+$Env:EXPERIMENTO            = "EXPERIMENTO-04-B"
+$Env:PROB_ROLE_REMOVAL      = "0.10"
 $Env:KNN_METRIC             = "cosine"
+$Env:KNN_METRIC_PARAMS      = "null"
+$Env:HASHED_FEATURE_COUNT   = "250000"
 $Env:KNN_NEIGHBORS          = "250"
-$Env:KNN_INDEX              = "./DATA/knn_index.pickle"
+
+# Experimento 1
+#$Env:EXPERIMENTO            = "EXPERIMENTO-01"
+#$Env:PROB_ROLE_REMOVAL      = "0.10"
+#$Env:KNN_METRIC             = "manhattan"
+#$Env:KNN_METRIC_PARAMS      = "null"
+#$Env:HASHED_FEATURE_COUNT   = "250000"
+#$Env:KNN_NEIGHBORS          = "250"
+#$Env:KNN_NEIGHBORS          = "250"
+
+# Experimento 2
+#$Env:EXPERIMENTO            = "EXPERIMENTO-02"
+#$Env:PROB_ROLE_REMOVAL      = "0.10"
+#$Env:KNN_METRIC             = "euclidean"
+#$Env:KNN_METRIC_PARAMS      = "null"
+#$Env:HASHED_FEATURE_COUNT   = "250000"
+#$Env:KNN_NEIGHBORS          = "250"
+
+# Experimento 3
+#$Env:EXPERIMENTO            = "EXPERIMENTO-03"
+#$Env:PROB_ROLE_REMOVAL      = "0.10"
+#$Env:KNN_METRIC             = "minkowski"
+#$Env:KNN_METRIC_PARAMS      = "{`"p`": 0.5}"
+#$Env:HASHED_FEATURE_COUNT   = "250000"
+#$Env:KNN_NEIGHBORS          = "250"
+
+# Experimento 4
+#$Env:EXPERIMENTO            = "EXPERIMENTO-04"
+#$Env:PROB_ROLE_REMOVAL      = "0.10"
+#$Env:KNN_METRIC             = "cosine"
+#$Env:KNN_METRIC_PARAMS      = "null"
+#$Env:HASHED_FEATURE_COUNT   = "250000"
+#$Env:KNN_NEIGHBORS          = "250"
+
+# Experimento 1-B
+#$Env:EXPERIMENTO            = "EXPERIMENTO-01-B"
+#$Env:PROB_ROLE_REMOVAL      = "0.10"
+#$Env:KNN_METRIC             = "manhattan"
+#$Env:KNN_METRIC_PARAMS      = "null"
+#$Env:HASHED_FEATURE_COUNT   = "250000"
+#$Env:KNN_NEIGHBORS          = "250"
+
+# Experimento 2-B
+#$Env:EXPERIMENTO            = "EXPERIMENTO-02-B"
+#$Env:PROB_ROLE_REMOVAL      = "0.10"
+#$Env:KNN_METRIC             = "euclidean"
+#$Env:KNN_METRIC_PARAMS      = "null"
+#$Env:HASHED_FEATURE_COUNT   = "250000"
+#$Env:KNN_NEIGHBORS          = "250"
+
+# Experimento 3-B
+#$Env:EXPERIMENTO            = "EXPERIMENTO-03-B"
+#$Env:PROB_ROLE_REMOVAL      = "0.10"
+#$Env:KNN_METRIC             = "minkowski"
+#$Env:KNN_METRIC_PARAMS      = "{`"p`": 0.5}"
+#$Env:HASHED_FEATURE_COUNT   = "250000"
+#$Env:KNN_NEIGHBORS          = "250"
+
+# Experimento 4-B
+#$Env:EXPERIMENTO            = "EXPERIMENTO-04-B"
+#$Env:PROB_ROLE_REMOVAL      = "0.10"
+#$Env:KNN_METRIC             = "cosine"
+#$Env:KNN_METRIC_PARAMS      = "null"
+#$Env:HASHED_FEATURE_COUNT   = "250000"
+#$Env:KNN_NEIGHBORS          = "250"
+
+
+$Env:DATASET                = "./DATA/${Env:EXPERIMENTO}/dataset.parquet"
+$Env:REMOVED_ROLES          = "./DATA/${Env:EXPERIMENTO}/removed-roles.parquet"
+$Env:USER_ROLES             = "./DATA/${Env:EXPERIMENTO}/user-roles.parquet"
+$Env:ORGUNIT_ROLES          = "./DATA/${Env:EXPERIMENTO}/orgunit-roles.parquet"
+$Env:FUNCTION_ROLES         = "./DATA/${Env:EXPERIMENTO}/function-roles.parquet"
+$Env:HASHED_FEATURES        = "./DATA/${Env:EXPERIMENTO}/hashed_features.dat"
+$Env:HASHED_FEATURES_IDX    = "./DATA/${Env:EXPERIMENTO}/hashed_features_idx.parquet"
+$Env:KNN_INDEX              = "./DATA/${Env:EXPERIMENTO}/knn_index.pickle"
+$Env:SCORES                 = "./DATA/${Env:EXPERIMENTO}/result.parquet"
+$Env:RESULT                 = "./DATA/${Env:EXPERIMENTO}/result.parquet"
+
+
